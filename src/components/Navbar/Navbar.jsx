@@ -15,7 +15,7 @@ function NavBar() {
             </Link>
 
             <Link to="/add" href="#">
-              <button className="ml-20 br-50">Add</button>
+              <button className="m br-50">Add</button>
             </Link>
           </Nav>
         </Container>

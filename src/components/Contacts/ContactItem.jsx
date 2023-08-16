@@ -1,23 +1,28 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-// import { deleteContact, getOneContact } from "../store/contactSlice";
+import { deleteContact, getOneContact } from "../../store/contactSlice";
+import { Link } from "react-router-dom";
 
 const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
-  console.log(contact);
+  //   console.log(contact);
 
   return (
-    <></>
-    // <li>
-    //   <p>
-    //     {contact.name} <br />
-    //     {contact.number}
-    //   </p>
-    //   <button onClick={() => dispatch(deleteContact(contact.id))}>
-    //     Delete
-    //   </button>
-    //   <button onClick={() => dispatch(getOneContact(contact.id))}>Edit</button>
-    // </li>
+    // <></>
+    <li className="Item">
+      <p>
+        Name: {contact.name} <br />
+        Number: {contact.number}
+      </p>
+      <button onClick={() => dispatch(deleteContact(contact.id))}>
+        Delete
+      </button>
+      <Link to="/edit">
+        <button onClick={() => dispatch(getOneContact(contact.id))}>
+          Edit
+        </button>
+      </Link>
+    </li>
   );
 };
 

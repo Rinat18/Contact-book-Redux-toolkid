@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveChanges } from "../store/contactSlice";
+import { saveChanges } from "../../store/contactSlice";
+import { Link } from "react-router-dom";
 
 const EditContact = () => {
   const oneContact = useSelector((state) => state.contacts.oneContact);
@@ -22,7 +23,9 @@ const EditContact = () => {
         onChange={(e) => setContact({ ...contact, number: e.target.value })}
         value={contact.number}
       />
-      <button onClick={() => dispatch(saveChanges(contact))}>Save</button>
+      <Link to="/">
+        <button onClick={() => dispatch(saveChanges(contact))}>Save</button>
+      </Link>
     </div>
   );
 };
