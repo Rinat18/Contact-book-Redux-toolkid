@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../store/contactSlice";
+import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
   const [contactName, setContactName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   function createContact() {
     if (!contactName.trim() || !contactNumber.trim())
       return alert("Some inputs are empty!");
@@ -19,6 +20,7 @@ const ContactForm = () => {
     dispatch(addContact(newContact));
     setContactName("");
     setContactNumber("");
+    navigate("/")
   }
 
   return (
